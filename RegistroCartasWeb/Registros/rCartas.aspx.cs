@@ -14,8 +14,11 @@ namespace RegistroCartasWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
+
+    
 
         private void Limpiar()
         {
@@ -26,7 +29,7 @@ namespace RegistroCartasWeb
            
         }
 
-        private Cartas LlenaClase()
+        private Cartas LlenaClase(Cartas cartas)
         {
             Cartas cr = new Cartas();
 
@@ -67,40 +70,26 @@ namespace RegistroCartasWeb
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Cartas> repositorio = new RepositorioBase<Cartas>();
-            Cartas cartas = new Cartas();
+            RepositorioBase<Cartas> repositorioBase = new RepositorioBase<Cartas>();
+           Cartas cartas = new Cartas();
             bool paso = false;
 
+            if (IsValid == false)
+            {
+                Utils.ShowToastr(this.Page, "Revisar todos los campo", "Error", "error");
+                return;
+            }
 
-            cartas = LlenaClase();
-
+            cartas = LlenaClase(cartas);
             if (cartas.IdCarta == 0)
-            {
-                paso = repositorio.Guardar(cartas);
-                Utils.ShowToastr(this, "Guardado", "Exito", "success");
-                Limpiar();
-            }
+                paso = repositorioBase.Guardar(cartas);
             else
-            {
-                Cartas user = new Cartas();
-                int id = Utils.ToInt(CartaIDTextBox.Text);
-                RepositorioBase<Cartas> repository = new RepositorioBase<Cartas>();
-                cartas = repository.Buscar(id);
-
-                if (user != null)
-                {
-                    paso = repositorio.Modificar(LlenaClase());
-                    Utils.ShowToastr(this, "Modificado", "Exito", "success");
-                }
-                else
-                    Utils.ShowToastr(this, "Id no existe", "Error", "error");
-            }
-
+                paso = repositorio.Modificar(cartas);
             if (paso)
             {
+                Utils.ShowToastr(this.Page, "Guardado con exito!!", "Guardado", "success");
                 Limpiar();
             }
-            else
-                Response.Write("<script>alert('No se pudo guardar');</script>");
 
         }
 
