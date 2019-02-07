@@ -12,6 +12,7 @@ namespace DAL
 
     {
         public DbSet<Cartas> Cartas { get; set; }
+        public DbSet<Destinatarios> Destinatarios{ get; set; }
 
         public Contexto() : base("ConStr")
         {
