@@ -12,11 +12,13 @@ namespace Entities
         [Key]
         public int DestinatarioID { get; set; }
         public string Nombre { get; set; }
+        public int Cantidad { get; set; }
 
         public Destinatarios()
         {
             DestinatarioID = 0;
             Nombre = string.Empty;
+            Cantidad = 0;
         }
 
     }

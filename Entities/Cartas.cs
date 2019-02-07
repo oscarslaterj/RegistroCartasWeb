@@ -14,6 +14,7 @@ namespace Entities
         public DateTime Fecha { get; set; }
         public int DestinatarioId { get; set; }
         public string Cuerpo { get; set; }
+      
 
         public Cartas()
         {
@@ -21,6 +22,7 @@ namespace Entities
             Fecha = DateTime.Now;
             DestinatarioId = 0;
             Cuerpo = string.Empty;
+           
         }
 
     }
