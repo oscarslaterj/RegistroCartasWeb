@@ -18,20 +18,31 @@
         <asp:Label Text="Fecha" runat="server" />
         <asp:TextBox ID="FechaTextBox" class="form-control input-group" TextMode="Date" runat="server" />
     </div>
+    <%--Nombres--%>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="container">
+            <div class="form-group">
+                <asp:Label ID="Label4" runat="server" Text="Nombres"></asp:Label>
+                <asp:TextBox class="form-control" ID="NombresTextBox" placeholder="Nombre" runat="server"></asp:TextBox>
+            </div>
+        </div>
+    </div>
 
 
     <%--Boton--%>
     <div class="col-sm-1 col-md-4 col-xs6">
-        <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-6" runat="server">
+        <asp:LinkButton ID="BuscarLinkButton" CssClass="btn btn-outline-info mt-6" runat="server" OnClick="BuscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                      Buscar
         </asp:LinkButton>
     </div>
-
-    <div class="form-group row">
-        <label class="control-label col-sm-2" for="CartasEnviadasTextBox">Cartas Enviadas:</label>
-        <div class="col-sm-1 col-md-4 col-xs6">
-            <asp:TextBox type="Number" class="form-control" ID="CETextBox" Text="0" runat="server"></asp:TextBox>
+    <%--Cantidad de Cartas Enviadas--%>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="container">
+            <div class="form-group">
+                <asp:Label ID="Label1" runat="server" Text="Cantidad de Cartas"></asp:Label>
+                <asp:TextBox class="form-control" ID="CartasEnviadasTextBox" type="number" Text="0" runat="server"></asp:TextBox>
+            </div>
         </div>
     </div>
 
@@ -40,9 +51,9 @@
             <div class="panel">
                 <div class="text-center">
                     <div class="form-group">
-                        <asp:Button ID="BtnNuevo" runat="server" Text="Nuevo" class="btn btn-primary btn-sm" />
-                        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" class="btn btn-success btn-sm"  />
-                        <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" class="btn btn-danger btn-sm" />
+                        <asp:Button ID="BtnNuevo" runat="server" Text="Nuevo" class="btn btn-primary btn-sm" OnClick="BtnNuevo_Click" />
+                        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" class="btn btn-success btn-sm" OnClick="BtnGuardar_Click" />
+                        <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" class="btn btn-danger btn-sm" OnClick="BtnEliminar_Click" />
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ namespace BLL
 {
     class CartasRepositorio:  RepositorioBase<Cartas>
     {
-        public bool Guardar(Cartas entity)
+        public override bool Guardar(Cartas entity)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -37,7 +37,7 @@ namespace BLL
             return paso;
         }
 
-        public bool Eliminar(int id)
+        public override bool Eliminar(int id)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
