@@ -84,6 +84,7 @@
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Registros\rCartas.aspx" />
+    <Content Include="Registros\rDestinatarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="Registros\rCartas.aspx.designer.cs">
       <DependentUpon>rCartas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rDestinatarios.aspx.cs">
+      <DependentUpon>rDestinatarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rDestinatarios.aspx.designer.cs">
+      <DependentUpon>rDestinatarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
